@@ -1,4 +1,4 @@
-# BAGEL
+# BAGELp
 BAGEL: software for Bayesian analysis of gene knockout screens using pooled library CRISPR or RNAi.
 
 This is parallel version of original bagel implementation:
