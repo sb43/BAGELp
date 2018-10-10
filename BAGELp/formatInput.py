@@ -1,8 +1,9 @@
 import logging
 import os
 import sys
-from Bagel.abstractBagel import AbstractBagel
-from Bagel.staticMethods import StaticMthods as SM
+from BAGELp.abstractBagel import AbstractBagel
+from BAGELp.staticMethods import StaticMthods as SM
+
 log = logging.getLogger(__name__)
 
 '''
@@ -22,7 +23,7 @@ class Bagel(AbstractBagel):
         """
         super().check_input()
         input_type = []
-        for infile in (self.fc_file, self.ess, self.noness):
+        for infile in (self.fcfile, self.ess, self.noness):
             input_type.append(SM.input_checker(infile))
         return input_type
 
@@ -33,22 +34,21 @@ class Bagel(AbstractBagel):
         cpus = self.cpus
         outdir = self.outdir
         fcfile = self.fcfile
-        noness = self.noness
         iter = self.numiter
-        column_list=self.column_list.split(',')
+        columns = self.column_list.split(',')
+        column_list = [int(c) for c in columns]
 
         if outdir:
-            os.makedirs(outdir + '/bagelOut', exist_ok=True)
+            os.makedirs(outdir, exist_ok=True)
         # check input files
         (input1, input2, input3) = self.check_input()
 
         if input1 and input2:
-            ess=load_signature_files(self.ess)
-            noness = load_signature_files(self.noness)
-
+            ess = SM.load_signature_files(self.ess)
+            noness = SM.load_signature_files(self.noness)
             SM.run_bagel(fcfile, ess, noness, cpus,
-                        column_list=column_list, NUM_BOOTSTRAPS=iter,
-                        outfilename=outdir + 'normalised_FC_bagel.out')
+                         column_list=column_list, NUM_BOOTSTRAPS=iter,
+                         outfilename=outdir + '/bagelp.out')
             log.info(" BAGEL Analysis completed successfully.....")
         else:
             sys.exit('Input data is not in required format, see inputFormat in README file')

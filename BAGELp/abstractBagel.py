@@ -6,9 +6,10 @@ class AbstractBagel(ABC):
       abstract class inilializes files to be comapred and implements two required methods
       to check user input and load config file
     '''
+
     def __init__(self, **kwargs):
         self.fcfile = kwargs['fc_file']
-        self.ess=kwargs['ref_essential']
+        self.ess = kwargs['ref_essential']
         self.noness = kwargs['ref_non_essential']
         self.column_list = kwargs['col_list']
         self.outdir = kwargs.get('outdir')

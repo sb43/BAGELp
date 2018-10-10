@@ -6,6 +6,7 @@ from . import parallel
 
 log = logging.getLogger(__name__)
 
+
 class StaticMthods(object):
     """ Static methosds for common tasks """
 
@@ -29,6 +30,8 @@ class StaticMthods(object):
             sys.exit('Error in reading input file:{}'.format(ioe.args[0]))
 
     # ------------------------------Analysis methods---------------------------------
+
+    @staticmethod
     def load_signature_files(sig_file):
         """
         :param sig_dir_path:
@@ -56,7 +59,7 @@ class StaticMthods(object):
         :return:  return on success
         """
         bf = parallel.run_parallel_bagel(fc_file, column_list, Ess, nonEss,
-                                             cpus, NUM_BOOTSTRAPS=NUM_BOOTSTRAPS)
+                                         cpus, NUM_BOOTSTRAPS=NUM_BOOTSTRAPS)
         fout = open(outfilename, 'w')
         fout.write('GENE\tBF\tSTD\tNumObs\n')
         for g in sorted(bf.keys()):

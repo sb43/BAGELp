@@ -34,7 +34,7 @@ before_script:
 
 script:
   - which python
-  - pytest --cov-report term --cov-report xml --cov-fail-under=50 --cov=pyCRISPRcleanR
+  - pytest --cov-report term --cov-report xml --cov-fail-under=50 --cov=BAGELp
   - coverage xml
 
 after_script:

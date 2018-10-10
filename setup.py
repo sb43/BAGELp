@@ -15,7 +15,7 @@ config = {
     'packages': ['BAGELp'],
     'package_data': {'BAGELp':['config/*.conf','parallel/*.py']},
     'entry_points': {
-        'console_scripts': ['BAGELp=Bagel.Bagel_cmd:main'],
+        'console_scripts': ['BAGELp=BAGELp.command:main'],
     }
 }
 

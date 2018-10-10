@@ -32,6 +32,7 @@ def _process_df(args):
     """ do things in parallel"""
     return _run_bagel(*args)
 
+
 def _run_bagel(bf, fc, gene_idx, genes_array, coreEss, nonEss, boot_range, boot_iter):
     start = boot_range[boot_iter]
     stop = boot_range[boot_iter + 1]
@@ -47,7 +48,7 @@ def _prepare_data(foldchangefile, column_list):
     fin = open(foldchangefile)
     skipfields = fin.readline().rstrip().split('\t')
     for i in column_list:
-        print("Using column:" + skipfields[i + 1])
+        print("Using column:{}".format(skipfields[i + 1]))
     for line in fin:
         fields = line.rstrip().split('\t')
         gsym = fields[1]
