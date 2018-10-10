@@ -3,8 +3,13 @@
 | --------------------------------------------------- | ----------------------------------------------------- |
 | [![Master Badge][travis-master-badge]][travis-repo] | [![Develop Badge][travis-develop-badge]][travis-repo] |
 
-This is parallel implementation of original BAGEL: software for Bayesian analysis of gene knockout screens using pooled library CRISPR or RNAi.
+This is parallel implementation of original [BAGEL][BAGEL]: software for Bayesian analysis of gene knockout screens using pooled library CRISPR or RNAi.
 
+BAGEL is a Bayesian classifier for pooled library genetic perturbation screens, using either CRISPR-Cas9 or shRNA libraries. 
+It uses training sets of known essential and nonessential genes to estimate what the fold change distribution of 
+an essential or nonessential gene should look like. Then, for each uncharacterized gene, it takes all observations 
+of reagents targeting that gene (guide RNA, for CRISPR-Cas9 screens, or short hairpin RNA) and makes a probabilistic statement 
+about whether those observations were more likely drawn from the essential or nonessential training set. A log2 Bayes Factor for each gene is reported.
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -20,6 +25,7 @@ This is parallel implementation of original BAGEL: software for Bayesian analysi
 		- [Setup VirtualEnv](#setup-virtualenv)
 - [Cutting a release](#cutting-a-release)
 	- [Install via `.whl` (wheel)](#install-via-whl-wheel)
+- [Rererence](#reference)
 
 <!-- /TOC -->
 
@@ -41,7 +47,8 @@ Please refere original [BAGEL][BAGEL] for detailed file format [documentation][d
 
 ### outputFormat
 
-Calculates log2 Bayes Factor for each gene, Standard deviation and number of observations considered
+Calculates log2 Bayes Factor for each gene.
+
 Please refere original  [BAGEL][BAGEL] for detailed file format [documentation][documentation]
 
 ## INSTALL
@@ -124,6 +131,13 @@ scp dist/BAGELp.X.X.X-py3-none-any.whl user@host:~/wheels
 # on host
 pip install --find-links=~/wheels BAGELp
 ```
+
+### Reference
+
+Hart T, Moffat J. BAGEL: a computational framework for identifying essential
+genes from pooled library screens. BMC Bioinformatics. 2016 Apr 16;17:164. doi:
+10.1186/s12859-016-1015-8.
+
 <!--refs-->
  [NumPy]: http://www.numpy.org/
  [SciPy]: https://www.scipy.org
