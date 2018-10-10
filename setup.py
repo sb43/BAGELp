@@ -3,7 +3,7 @@
 from setuptools import setup
 
 config = {
-    'version': '1.0.0',
+    'version': '1.0.1',
     'name': 'BAGELp',
     'description': 'This is parallel implementation of original BAGEL algorithm',
     'author': 'Shriram Bhosle',
