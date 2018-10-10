@@ -1,4 +1,7 @@
-# BAGELp
+# BAGELp : parellel implementation of BAGEL
+
+https://sourceforge.net/projects/bagel-for-knockout-screens/
+
 BAGEL: software for Bayesian analysis of gene knockout screens using pooled library CRISPR or RNAi.
 
 This is parallel version of original bagel implementation:
@@ -12,7 +15,6 @@ reagents targeting that gene (guide RNA, for CRISPR-Cas9 screens, or short hairp
 probabilistic statement about whether those observations were more likely drawn from the essential or nonessential training set.
 A log2 Bayes Factor for each gene is reported.
 
-Please refere original link for detailed file format documentation
+Please refer original link for detailed file format documentation
 
 https://sourceforge.net/p/bagel-for-knockout-screens/wiki/Home/#8fde
-

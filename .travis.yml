@@ -1,0 +1,43 @@
+dist: trusty
+
+notifications:
+  email: false
+  slack: wtsi-cgpit:ptUMR1tkNyZJYd9TpGoss8WR
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=747d8a7fc1700cea5c7e07aba5de7a70acd6a695c7ff481852bbcf95c3f1086c
+
+addons:
+ apt:
+  packages:
+    - build-essential # everything
+    - zlib1g-dev # many
+    - libcurl4-openssl-dev # many
+    - unzip # kentools/pcap
+    - libcairo2-dev # give png.h for kentsrc and used by R in later components
+    - time
+    - curl
+
+language: python
+
+python: 
+    - "3.6.1"
+
+install:
+  - pip install -r requirements.txt
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script:
+  - which python
+  - pytest --cov-report term --cov-report xml --cov-fail-under=50 --cov=BAGELp
+  - coverage xml
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+sudo: false
