@@ -133,10 +133,11 @@ pip install --find-links=~/wheels BAGELp
 ```
 
 ### Reference
+```
 If using BAGELp please site
 # URL of this repository and
 # Hart T, Moffat J. BAGEL: a computational framework for identifying essential genes from pooled library screens. BMC Bioinformatics. 2016 Apr 16;17:164. doi:10.1186/s12859-016-1015-8.
-
+```
 <!--refs-->
  [NumPy]: http://www.numpy.org/
  [SciPy]: https://www.scipy.org
